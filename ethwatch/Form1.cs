@@ -34,9 +34,16 @@ namespace ethwatch
         {
             Update_nano();
         }
+        private Settings frm;
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e) // Will call settings
         {
-
+            frm = new Settings((int)(this.Opacity * 100));
+            frm.DatabaseChanged += settingsForm_Databasechanged;
+            frm.ShowDialog();
+        }
+        void settingsForm_Databasechanged(int op)
+        {
+            this.Opacity = (double)op / 100;
         }
     }
 }

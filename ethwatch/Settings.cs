@@ -12,9 +12,17 @@ namespace ethwatch
 {
     public partial class Settings : Form
     {
-        public Settings()
+        public event DatabaseChangeHandler DatabaseChanged;
+        public delegate void DatabaseChangeHandler(int opacity);
+        public static int ops;
+        public Settings(int op)
         {
+            ops = op;
             InitializeComponent();
+        }
+        private void trackBar1_ValueChanged(object sender, EventArgs e)
+        {
+            this.DatabaseChanged(trackBar1.Value);
         }
     }
 }
