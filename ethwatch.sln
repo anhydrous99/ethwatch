@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ethwatch", "ethwatch\ethwat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_call", "API_call\API_call.csproj", "{4A98C2CA-F32F-47ED-A713-359D0B600CD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trade_or_Not", "Trade_or_Not\Trade_or_Not.csproj", "{47CC28EA-482D-44D2-B645-FFDEF675AF23}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trade_or_Not", "Trade_or_Not\Trade_or_Not.csproj", "{B32C2CA1-8FB1-4B43-A24C-4FFAA6EC606A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{4A98C2CA-F32F-47ED-A713-359D0B600CD1} = {4A98C2CA-F32F-47ED-A713-359D0B600CD1}
 	EndProjectSection
@@ -29,10 +29,10 @@ Global
 		{4A98C2CA-F32F-47ED-A713-359D0B600CD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A98C2CA-F32F-47ED-A713-359D0B600CD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A98C2CA-F32F-47ED-A713-359D0B600CD1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{47CC28EA-482D-44D2-B645-FFDEF675AF23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{47CC28EA-482D-44D2-B645-FFDEF675AF23}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{47CC28EA-482D-44D2-B645-FFDEF675AF23}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{47CC28EA-482D-44D2-B645-FFDEF675AF23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B32C2CA1-8FB1-4B43-A24C-4FFAA6EC606A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B32C2CA1-8FB1-4B43-A24C-4FFAA6EC606A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B32C2CA1-8FB1-4B43-A24C-4FFAA6EC606A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B32C2CA1-8FB1-4B43-A24C-4FFAA6EC606A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
