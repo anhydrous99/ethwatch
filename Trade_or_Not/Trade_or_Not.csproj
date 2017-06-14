@@ -52,6 +52,7 @@
     <ProjectReference Include="..\API_call\API_call.csproj">
       <Project>{4a98c2ca-f32f-47ed-a713-359d0b600cd1}</Project>
       <Name>API_call</Name>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
