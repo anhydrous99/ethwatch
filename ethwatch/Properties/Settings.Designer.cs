@@ -34,5 +34,29 @@ namespace ethwatch.Properties {
                 this["lol"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0, 0, 0")]
+        public global::System.Windows.Forms.Padding lol1 {
+            get {
+                return ((global::System.Windows.Forms.Padding)(this["lol1"]));
+            }
+            set {
+                this["lol1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public double lol2 {
+            get {
+                return ((double)(this["lol2"]));
+            }
+            set {
+                this["lol2"] = value;
+            }
+        }
     }
 }
