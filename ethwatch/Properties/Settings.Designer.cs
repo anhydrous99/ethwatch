@@ -58,5 +58,53 @@ namespace ethwatch.Properties {
                 this["lol2"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string lol3 {
+            get {
+                return ((string)(this["lol3"]));
+            }
+            set {
+                this["lol3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string lol4 {
+            get {
+                return ((string)(this["lol4"]));
+            }
+            set {
+                this["lol4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("22")]
+        public string lol5 {
+            get {
+                return ((string)(this["lol5"]));
+            }
+            set {
+                this["lol5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string lol6 {
+            get {
+                return ((string)(this["lol6"]));
+            }
+            set {
+                this["lol6"] = value;
+            }
+        }
     }
 }

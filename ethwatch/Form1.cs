@@ -33,8 +33,15 @@ namespace ethwatch
             label16.Text = NanoPool.get_Hashrate(address, 24).ToString();
             label17.Text = NanoPool.get_Hashrate(address, hr).ToString();
             label24.Text = Convert.ToString(balance * eth_USD_Price);
-            //SSH.Connection_Info conv = new SSH.Connection_Info();
-            //SSH.Nvidia_Info nv_info = SSH.Get_Nvidia_Info();
+            if (Do_ssh)
+            {
+                SSH.Nvidia_Info nv_info = SSH.Get_Nvidia_Info(Connection_Info);
+                label25.Text = nv_info.Fan_percent.ToString() + "%";
+                label26.Text = nv_info.Temp.ToString() + "C";
+                label27.Text = nv_info.Power_consumtion.ToString() + "W/" + nv_info.Power_Limit.ToString() + "W";
+                label28.Text = nv_info.Mem_Usage.ToString() + "MiB/" + nv_info.Mem_Limit.ToString() + "MiB";
+                label29.Text = nv_info.GPU_Util + "%";
+            }
         }
         bool enabled = false;
         private void button1_Click(object sender, EventArgs e)
@@ -56,14 +63,18 @@ namespace ethwatch
         private Settings frm;
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e) // Will call settings
         {
-            frm = new Settings((int)(this.Opacity * 100), timer1.Interval);
+            frm = new Settings((int)(this.Opacity * 100), timer1.Interval, Do_ssh, Connection_Info);
             frm.DatabaseChanged += settingsForm_Databasechanged;
             frm.ShowDialog();
         }
-        void settingsForm_Databasechanged(int op, int interval)
+        private static bool Do_ssh = false;
+        private static SSH.Connection_Info Connection_Info;
+        void settingsForm_Databasechanged(int op, int interval, bool ssh, SSH.Connection_Info con_Info)
         {
             this.Opacity = (double)op / 100;
             timer1.Interval = interval * 1000;
+            Do_ssh = ssh;
+            Connection_Info = con_Info;
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
