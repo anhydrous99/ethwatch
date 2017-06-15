@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using Renci.SshNet;
 
 namespace API_call
@@ -21,15 +22,15 @@ namespace API_call
         }
         public class Nvidia_Info
         {
-            public string Fan_percent;
-            public string Temp;
-            public string Power_consumtion;
-            public string Power_Limit;
-            public string Mem_Usage;
-            public string Mem_Limit;
-            public string GPU_Util;
-            public Nvidia_Info(string fan_percent, string temp, string power_cons, string power_lim,
-                               string mem_usage, string mem_lim, string gpu_util)
+            public int Fan_percent;
+            public int Temp;
+            public int Power_consumtion;
+            public int Power_Limit;
+            public int Mem_Usage;
+            public int Mem_Limit;
+            public int GPU_Util;
+            public Nvidia_Info(int fan_percent, int temp, int power_cons, int power_lim,
+                               int mem_usage, int mem_lim, int gpu_util)
             {
                 Fan_percent = fan_percent;
                 Temp = temp;
@@ -67,9 +68,34 @@ namespace API_call
             {
                 string str = Run_command(connection_info, "nvidia-smi");
                 str = str.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries)[8];
-                string[] split = str.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                Nvidia_Info nv = new Nvidia_Info(split[1], split[2], split[4], split[6], split[8], split[10],
-                                                 split[12]);
+
+                string re1 = ".*?"; // Non-greedy match on filler
+                string re2 = "(\\d+)";  // Integer Number 1
+                string re3 = ".*?"; // Non-greedy match on filler
+                string re4 = "(\\d+)";  // Integer Number 2
+                string re5 = ".*?"; // Non-greedy match on filler
+                string re6 = "\\d+";    // Uninteresting: int
+                string re7 = ".*?"; // Non-greedy match on filler
+                string re8 = "(\\d+)";  // Integer Number 3
+                string re9 = ".*?"; // Non-greedy match on filler
+                string re10 = "(\\d+)"; // Integer Number 4
+                string re11 = ".*?";    // Non-greedy match on filler
+                string re12 = "(\\d+)"; // Integer Number 5
+                string re13 = ".*?";    // Non-greedy match on filler
+                string re14 = "(\\d+)"; // Integer Number 6
+                string re15 = ".*?";    // Non-greedy match on filler
+                string re16 = "(\\d+)"; // Integer Number 7
+
+                Regex r = new Regex(re1 + re2 + re3 + re4 + re5 + re6 + re7 + re8 + re9 + re10 + re11 + re12 + re13 + re14 + re15 + re16, RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                Match m = r.Match(str);
+                int int1 = Convert.ToInt32(m.Groups[1].ToString());
+                int int2 = Convert.ToInt32(m.Groups[2].ToString());
+                int int3 = Convert.ToInt32(m.Groups[3].ToString());
+                int int4 = Convert.ToInt32(m.Groups[4].ToString());
+                int int5 = Convert.ToInt32(m.Groups[5].ToString());
+                int int6 = Convert.ToInt32(m.Groups[6].ToString());
+                int int7 = Convert.ToInt32(m.Groups[7].ToString());
+                Nvidia_Info nv = new Nvidia_Info(int1, int2, int3, int4, int5, int6, int7);
                 return nv;
             }
             public static string Get_AMD_Info(Connection_Info connection_info) //To Do
