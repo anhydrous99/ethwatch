@@ -100,5 +100,11 @@ namespace API_call
             exchange = Convert.ToSingle(m.Groups[1].ToString());
             return exchange;
         }
+        public static float get_USD_Balance(string address)
+        {
+            float eth_balance = get_Balance(address);
+            float eth_USD_Price = get_eth_usd_rate();
+            return eth_balance * eth_USD_Price;
+        }
     }
 }
