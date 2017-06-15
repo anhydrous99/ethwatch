@@ -33,13 +33,23 @@ namespace API_call
             {
                 txt = client.DownloadString(url);
             }
-
-            string re1 = ".*?"; // Non-greedy match on filler
-            string re2 = "([+-]?\\d*\\.\\d+)(?![-+0-9\\.])";    // Float 1
-
-            Regex r = new Regex(re1 + re2, RegexOptions.IgnoreCase | RegexOptions.Singleline);
-            Match m = r.Match(txt);
-            hashrate = Convert.ToSingle(m.Groups[1].Value);
+            string re1, re2;
+            try
+            {
+                re1 = ".*?"; // Non-greedy match on filler
+                re2 = "([+-]?\\d*\\.\\d+)(?![-+0-9\\.])";    // Float 1
+                Regex r = new Regex(re1 + re2, RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                Match m = r.Match(txt);
+                hashrate = Convert.ToSingle(m.Groups[1].Value);
+            }
+            catch (Exception ex)
+            {
+                re1 = ".*?"; // Non-greedy match on filler
+                re2 = "(\\d+)";  // Integer Number 1
+                Regex r = new Regex(re1 + re2, RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                Match m = r.Match(txt);
+                hashrate = Convert.ToSingle(m.Groups[1].Value);
+            }
             return hashrate;
         }
         public static float get_CurrentHashrate(string address)

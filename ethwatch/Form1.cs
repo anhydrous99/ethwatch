@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using API_call;
 
@@ -24,23 +25,23 @@ namespace ethwatch
             float balance = NanoPool.get_Balance(address);
             float eth_USD_Price = NanoPool.get_eth_usd_rate();
             float eth_BTC_Price = NanoPool.get_eth_btc_rate();
-            label10.Text = balance.ToString();
-            label11.Text = NanoPool.get_CurrentHashrate(address).ToString();
-            label12.Text = NanoPool.get_Hashrate(address, 1).ToString();
-            label13.Text = NanoPool.get_Hashrate(address, 3).ToString();
-            label14.Text = NanoPool.get_Hashrate(address, 6).ToString();
-            label15.Text = NanoPool.get_Hashrate(address, 12).ToString();
-            label16.Text = NanoPool.get_Hashrate(address, 24).ToString();
-            label17.Text = NanoPool.get_Hashrate(address, hr).ToString();
-            label24.Text = Convert.ToString(balance * eth_USD_Price);
+            SetText_label10(balance.ToString());
+            SetText_label11(NanoPool.get_CurrentHashrate(address).ToString());
+            SetText_label12(NanoPool.get_Hashrate(address, 1).ToString());
+            SetText_label13(NanoPool.get_Hashrate(address, 3).ToString());
+            SetText_label14(NanoPool.get_Hashrate(address, 6).ToString());
+            SetText_label15(NanoPool.get_Hashrate(address, 12).ToString());
+            SetText_label16(NanoPool.get_Hashrate(address, 24).ToString());
+            SetText_label17(NanoPool.get_Hashrate(address, hr).ToString());
+            SetText_label24(Convert.ToString(balance * eth_USD_Price));
             if (Do_ssh)
             {
                 SSH.Nvidia_Info nv_info = SSH.Get_Nvidia_Info(Connection_Info);
-                label25.Text = nv_info.Fan_percent.ToString() + "%";
-                label26.Text = nv_info.Temp.ToString() + "C";
-                label27.Text = nv_info.Power_consumtion.ToString() + "W/" + nv_info.Power_Limit.ToString() + "W";
-                label28.Text = nv_info.Mem_Usage.ToString() + "MiB/" + nv_info.Mem_Limit.ToString() + "MiB";
-                label29.Text = nv_info.GPU_Util + "%";
+                SetText_label25(nv_info.Fan_percent.ToString() + "%");
+                SetText_label26(nv_info.Temp.ToString() + "C");
+                SetText_label27(nv_info.Power_consumtion.ToString() + "W/" + nv_info.Power_Limit.ToString() + "W");
+                SetText_label28(nv_info.Mem_Usage.ToString() + "MiB/" + nv_info.Mem_Limit.ToString() + "MiB");
+                SetText_label29(nv_info.GPU_Util + "%");
             }
         }
         bool enabled = false;
@@ -54,7 +55,8 @@ namespace ethwatch
             }
             else
             {
-                Update_nano();
+                System.Threading.Thread myThread = new System.Threading.Thread(new System.Threading.ThreadStart(Update_nano));
+                myThread.Start();
                 timer1.Enabled = true;
                 enabled = true;
                 button1.Text = "Stop";
@@ -81,5 +83,176 @@ namespace ethwatch
             System.Threading.Thread myThread = new System.Threading.Thread(new System.Threading.ThreadStart(Update_nano));
             myThread.Start();
         }
+        #region Thread Safe Calls
+        delegate void StringArgReturnVoidDelegate(string text);
+        private void SetText_label10(string text)
+        {
+            if (this.label10.InvokeRequired)
+            {
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label10);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                label10.Text = text;
+            }
+        }
+        private void SetText_label11(string text)
+        {
+            if (this.label11.InvokeRequired)
+            {
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label11);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                label11.Text = text;
+            }
+        }
+        private void SetText_label12(string text)
+        {
+            if (this.label12.InvokeRequired)
+            {
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label12);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                label12.Text = text;
+            }
+        }
+        private void SetText_label13(string text)
+        {
+            if (this.label13.InvokeRequired)
+            {
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label13);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                label13.Text = text;
+            }
+        }
+        private void SetText_label14(string text)
+        {
+            if (this.label14.InvokeRequired)
+            {
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label14);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                label14.Text = text;
+            }
+        }
+        private void SetText_label15(string text)
+        {
+            if (this.label15.InvokeRequired)
+            {
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label15);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                label15.Text = text;
+            }
+        }
+        private void SetText_label16(string text)
+        {
+            if (this.label16.InvokeRequired)
+            {
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label16);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                label16.Text = text;
+            }
+        }
+        private void SetText_label17(string text)
+        {
+            if (this.label17.InvokeRequired)
+            {
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label17);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                label17.Text = text;
+            }
+        }
+        private void SetText_label24(string text)
+        {
+            if (this.label24.InvokeRequired)
+            {
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label24);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                label24.Text = text;
+            }
+        }
+        private void SetText_label25(string text)
+        {
+            if (this.label25.InvokeRequired)
+            {
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label25);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                label25.Text = text;
+            }
+        }
+        private void SetText_label26(string text)
+        {
+            if (this.label26.InvokeRequired)
+            {
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label26);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                label26.Text = text;
+            }
+        }
+        private void SetText_label27(string text)
+        {
+            if (this.label27.InvokeRequired)
+            {
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label27);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                label27.Text = text;
+            }
+        }
+        private void SetText_label28(string text)
+        {
+            if (this.label28.InvokeRequired)
+            {
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label28);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                label28.Text = text;
+            }
+        }
+        private void SetText_label29(string text)
+        {
+            if (this.label29.InvokeRequired)
+            {
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label29);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                label29.Text = text;
+            }
+        }
+        #endregion
     }
 }
