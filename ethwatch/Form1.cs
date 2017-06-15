@@ -78,7 +78,8 @@ namespace ethwatch
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Update_nano();
+            System.Threading.Thread myThread = new System.Threading.Thread(new System.Threading.ThreadStart(Update_nano));
+            myThread.Start();
         }
     }
 }
