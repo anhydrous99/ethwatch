@@ -36,10 +36,22 @@ namespace ethwatch
             //SSH.Connection_Info conv = new SSH.Connection_Info();
             //SSH.Nvidia_Info nv_info = SSH.Get_Nvidia_Info();
         }
+        bool enabled = false;
         private void button1_Click(object sender, EventArgs e)
         {
-            Update_nano();
-            timer1.Enabled = true;
+            if (enabled)
+            {
+                enabled = false;
+                timer1.Enabled = false;
+                button1.Text = "Start";
+            }
+            else
+            {
+                Update_nano();
+                timer1.Enabled = true;
+                enabled = true;
+                button1.Text = "Stop";
+            }
         }
         private Settings frm;
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e) // Will call settings
