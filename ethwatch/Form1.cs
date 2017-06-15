@@ -69,7 +69,7 @@ namespace ethwatch
             frm.DatabaseChanged += settingsForm_Databasechanged;
             frm.ShowDialog();
         }
-        private static bool Do_ssh = false;
+        private static bool Do_ssh;
         private static SSH.Connection_Info Connection_Info;
         void settingsForm_Databasechanged(int op, int interval, bool ssh, SSH.Connection_Info con_Info)
         {

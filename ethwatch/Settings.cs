@@ -16,7 +16,7 @@ namespace ethwatch
         public event DatabaseChangeHandler DatabaseChanged;
         public delegate void DatabaseChangeHandler(int opacity, int interval, bool ssh, SSH.Connection_Info con_Info);
         private static SSH.Connection_Info _Connection_Info;
-        private static bool Do_ssh = false;
+        private static bool Do_ssh;
         public Settings(int op, int interval, bool do_ssh, SSH.Connection_Info con_info)
         {
             InitializeComponent();
@@ -50,6 +50,8 @@ namespace ethwatch
             pass_txt.Enabled = chk;
             prt_txt.Enabled = chk;
             Do_ssh = chk;
+            _Connection_Info = asdf_Connection_Info();
+            DatabaseChanged(trackBar1.Value, Convert.ToInt32(textBox1.Text), Do_ssh, _Connection_Info);
         }
         private void _TextChanged(object sender, EventArgs e)
         {
