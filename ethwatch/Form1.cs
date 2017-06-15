@@ -21,7 +21,10 @@ namespace ethwatch
         {
             string address = textBox2.Text;
             int hr = Convert.ToInt32(textBox1.Text);
-            label10.Text = NanoPool.get_Balance(address).ToString();
+            float balance = NanoPool.get_Balance(address);
+            float eth_USD_Price = NanoPool.get_eth_usd_rate();
+            float eth_BTC_Price = NanoPool.get_eth_btc_rate();
+            label10.Text = balance.ToString();
             label11.Text = NanoPool.get_CurrentHashrate(address).ToString();
             label12.Text = NanoPool.get_Hashrate(address, 1).ToString();
             label13.Text = NanoPool.get_Hashrate(address, 3).ToString();
@@ -29,6 +32,9 @@ namespace ethwatch
             label15.Text = NanoPool.get_Hashrate(address, 12).ToString();
             label16.Text = NanoPool.get_Hashrate(address, 24).ToString();
             label17.Text = NanoPool.get_Hashrate(address, hr).ToString();
+            label24.Text = Convert.ToString(balance * eth_USD_Price);
+            //SSH.Connection_Info conv = new SSH.Connection_Info();
+            //SSH.Nvidia_Info nv_info = SSH.Get_Nvidia_Info();
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -47,6 +53,8 @@ namespace ethwatch
             this.Opacity = (double)op / 100;
             timer1.Enabled = enable_timer;
             timer1.Interval = interval * 1000;
+            if (enable_timer)
+                Update_nano();
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
