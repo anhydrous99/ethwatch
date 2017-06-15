@@ -33,17 +33,24 @@ namespace ethwatch
         private void button1_Click(object sender, EventArgs e)
         {
             Update_nano();
+            timer1.Enabled = true;
         }
         private Settings frm;
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e) // Will call settings
         {
-            frm = new Settings((int)(this.Opacity * 100));
+            frm = new Settings((int)(this.Opacity * 100), timer1.Enabled, timer1.Interval);
             frm.DatabaseChanged += settingsForm_Databasechanged;
             frm.ShowDialog();
         }
-        void settingsForm_Databasechanged(int op)
+        void settingsForm_Databasechanged(int op, bool enable_timer, int interval)
         {
             this.Opacity = (double)op / 100;
+            timer1.Enabled = enable_timer;
+            timer1.Interval = interval * 1000;
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Update_nano();
         }
     }
 }
