@@ -106,5 +106,17 @@ namespace ethwatch.Properties {
                 this["lol6"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool chked1 {
+            get {
+                return ((bool)(this["chked1"]));
+            }
+            set {
+                this["chked1"] = value;
+            }
+        }
     }
 }

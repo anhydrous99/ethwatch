@@ -55,7 +55,7 @@ namespace ethwatch
             }
             else
             {
-                System.Threading.Thread myThread = new System.Threading.Thread(new System.Threading.ThreadStart(Update_nano));
+                Thread myThread = new Thread(new ThreadStart(Update_nano));
                 myThread.Start();
                 timer1.Enabled = true;
                 enabled = true;
@@ -80,8 +80,17 @@ namespace ethwatch
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            System.Threading.Thread myThread = new System.Threading.Thread(new System.Threading.ThreadStart(Update_nano));
+            Thread myThread = new Thread(new ThreadStart(Update_nano));
             myThread.Start();
+        }
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            bool chk = checkBox1.Checked;
+            TopMost = chk;
+        }
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Properties.Settings.Default.Save();
         }
         #region Thread Safe Calls
         delegate void StringArgReturnVoidDelegate(string text);

@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -74,6 +75,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.label23);
             this.groupBox1.Controls.Add(this.button1);
@@ -98,10 +100,23 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(11, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(193, 244);
+            this.groupBox1.Size = new System.Drawing.Size(184, 244);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Info (NanoPool)";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = global::ethwatch.Properties.Settings.Default.chked1;
+            this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::ethwatch.Properties.Settings.Default, "chked1", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBox1.Location = new System.Drawing.Point(90, 207);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(81, 17);
+            this.checkBox1.TabIndex = 11;
+            this.checkBox1.Text = "Always Top";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label24
             // 
@@ -208,7 +223,7 @@
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::ethwatch.Properties.Settings.Default, "lol", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBox2.Location = new System.Drawing.Point(9, 177);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.Size = new System.Drawing.Size(146, 20);
             this.textBox2.TabIndex = 6;
             this.textBox2.Text = global::ethwatch.Properties.Settings.Default.lol;
             // 
@@ -310,7 +325,7 @@
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(216, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(207, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -335,7 +350,7 @@
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Location = new System.Drawing.Point(12, 277);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(192, 90);
+            this.groupBox2.Size = new System.Drawing.Size(183, 90);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Nvidia Info";
@@ -343,47 +358,47 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(98, 68);
+            this.label29.Location = new System.Drawing.Point(55, 68);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(41, 13);
+            this.label29.Size = new System.Drawing.Size(13, 13);
             this.label29.TabIndex = 8;
-            this.label29.Text = "label29";
+            this.label29.Text = "0";
             // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(98, 55);
+            this.label28.Location = new System.Drawing.Point(55, 55);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(41, 13);
+            this.label28.Size = new System.Drawing.Size(13, 13);
             this.label28.TabIndex = 7;
-            this.label28.Text = "label28";
+            this.label28.Text = "0";
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(98, 42);
+            this.label27.Location = new System.Drawing.Point(55, 42);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(41, 13);
+            this.label27.Size = new System.Drawing.Size(13, 13);
             this.label27.TabIndex = 6;
-            this.label27.Text = "label27";
+            this.label27.Text = "0";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(98, 29);
+            this.label26.Location = new System.Drawing.Point(55, 29);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(41, 13);
+            this.label26.Size = new System.Drawing.Size(13, 13);
             this.label26.TabIndex = 5;
-            this.label26.Text = "label26";
+            this.label26.Text = "0";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(98, 16);
+            this.label25.Location = new System.Drawing.Point(55, 16);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(41, 13);
+            this.label25.Size = new System.Drawing.Size(13, 13);
             this.label25.TabIndex = 4;
-            this.label25.Text = "label25";
+            this.label25.Text = "0";
             // 
             // label22
             // 
@@ -439,7 +454,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(216, 375);
+            this.ClientSize = new System.Drawing.Size(207, 375);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
@@ -450,6 +465,7 @@
             this.Name = "Form1";
             this.Opacity = global::ethwatch.Properties.Settings.Default.lol2;
             this.Text = "ethwatch";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -500,6 +516,7 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 
