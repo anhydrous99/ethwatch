@@ -86,7 +86,7 @@ namespace ethwatch
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             bool chk = checkBox1.Checked;
-            TopMost = chk;
+            this.TopMost = chk;
         }
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {

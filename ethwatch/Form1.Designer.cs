@@ -108,8 +108,6 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = global::ethwatch.Properties.Settings.Default.chked1;
-            this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::ethwatch.Properties.Settings.Default, "chked1", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkBox1.Location = new System.Drawing.Point(90, 207);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(81, 17);
