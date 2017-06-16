@@ -41,16 +41,6 @@ namespace API_call
                 GPU_Util = gpu_util;
             }
         }
-        public class AMD_Info
-        {
-            public string Fan_rpm;
-            public string Temp;
-            public AMD_Info(string fan_rpm, string temp)
-            {
-                Fan_rpm = fan_rpm;
-                Temp = temp;
-            }
-        }
         static string Run_command(Connection_Info connection_info, string command)
         {
             var pass_auth = new PasswordAuthenticationMethod(connection_info.Username, connection_info.Password);
@@ -95,11 +85,6 @@ namespace API_call
             int int7 = Convert.ToInt32(m.Groups[7].ToString());
             Nvidia_Info nv = new Nvidia_Info(int1, int2, int3, int4, int5, int6, int7);
             return nv;
-        }
-        public static string Get_AMD_Info(Connection_Info connection_info) //To Do
-        {
-            string output = Run_command(connection_info, "sensors");
-            return output;
         }
     }
 }
