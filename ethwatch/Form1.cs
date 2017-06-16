@@ -24,7 +24,6 @@ namespace ethwatch
             int hr = Convert.ToInt32(textBox1.Text);
             float balance = NanoPool.get_Balance(address);
             float eth_USD_Price = NanoPool.get_eth_usd_rate();
-            float eth_BTC_Price = NanoPool.get_eth_btc_rate();
             SetText_label10(balance.ToString());
             SetText_label11(NanoPool.get_CurrentHashrate(address).ToString());
             SetText_label12(NanoPool.get_Hashrate(address, 1).ToString());
