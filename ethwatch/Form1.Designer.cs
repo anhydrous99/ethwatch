@@ -32,17 +32,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label24 = new System.Windows.Forms.Label();
+            this.usd_balance_lbl = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.hashrate_nhr_lbl = new System.Windows.Forms.Label();
+            this.hashrate_24hr_lbl = new System.Windows.Forms.Label();
+            this.hashrate_12hr_lbl = new System.Windows.Forms.Label();
+            this.hashrate_6hr_lbl = new System.Windows.Forms.Label();
+            this.hashrate_3hr_lbl = new System.Windows.Forms.Label();
+            this.hashrate_1hr_lbl = new System.Windows.Forms.Label();
+            this.curr_hashrate_lbl = new System.Windows.Forms.Label();
+            this.balance_lbl = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -57,11 +57,11 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
+            this.nv_usage_lbl = new System.Windows.Forms.Label();
+            this.nv_mem_lbl = new System.Windows.Forms.Label();
+            this.nv_pw_lbl = new System.Windows.Forms.Label();
+            this.nv_tmp_lbl = new System.Windows.Forms.Label();
+            this.fan_perc_lbl = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -76,17 +76,17 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Controls.Add(this.label24);
+            this.groupBox1.Controls.Add(this.usd_balance_lbl);
             this.groupBox1.Controls.Add(this.label23);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.hashrate_nhr_lbl);
+            this.groupBox1.Controls.Add(this.hashrate_24hr_lbl);
+            this.groupBox1.Controls.Add(this.hashrate_12hr_lbl);
+            this.groupBox1.Controls.Add(this.hashrate_6hr_lbl);
+            this.groupBox1.Controls.Add(this.hashrate_3hr_lbl);
+            this.groupBox1.Controls.Add(this.hashrate_1hr_lbl);
+            this.groupBox1.Controls.Add(this.curr_hashrate_lbl);
+            this.groupBox1.Controls.Add(this.balance_lbl);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
@@ -116,14 +116,14 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // label24
+            // usd_balance_lbl
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(99, 136);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(13, 13);
-            this.label24.TabIndex = 10;
-            this.label24.Text = "0";
+            this.usd_balance_lbl.AutoSize = true;
+            this.usd_balance_lbl.Location = new System.Drawing.Point(99, 136);
+            this.usd_balance_lbl.Name = "usd_balance_lbl";
+            this.usd_balance_lbl.Size = new System.Drawing.Size(13, 13);
+            this.usd_balance_lbl.TabIndex = 10;
+            this.usd_balance_lbl.Text = "0";
             // 
             // label23
             // 
@@ -144,77 +144,77 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // label17
+            // hashrate_nhr_lbl
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(99, 123);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(13, 13);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "0";
+            this.hashrate_nhr_lbl.AutoSize = true;
+            this.hashrate_nhr_lbl.Location = new System.Drawing.Point(99, 123);
+            this.hashrate_nhr_lbl.Name = "hashrate_nhr_lbl";
+            this.hashrate_nhr_lbl.Size = new System.Drawing.Size(13, 13);
+            this.hashrate_nhr_lbl.TabIndex = 1;
+            this.hashrate_nhr_lbl.Text = "0";
             // 
-            // label16
+            // hashrate_24hr_lbl
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(99, 107);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(13, 13);
-            this.label16.TabIndex = 1;
-            this.label16.Text = "0";
+            this.hashrate_24hr_lbl.AutoSize = true;
+            this.hashrate_24hr_lbl.Location = new System.Drawing.Point(99, 107);
+            this.hashrate_24hr_lbl.Name = "hashrate_24hr_lbl";
+            this.hashrate_24hr_lbl.Size = new System.Drawing.Size(13, 13);
+            this.hashrate_24hr_lbl.TabIndex = 1;
+            this.hashrate_24hr_lbl.Text = "0";
             // 
-            // label15
+            // hashrate_12hr_lbl
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(99, 94);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(13, 13);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "0";
+            this.hashrate_12hr_lbl.AutoSize = true;
+            this.hashrate_12hr_lbl.Location = new System.Drawing.Point(99, 94);
+            this.hashrate_12hr_lbl.Name = "hashrate_12hr_lbl";
+            this.hashrate_12hr_lbl.Size = new System.Drawing.Size(13, 13);
+            this.hashrate_12hr_lbl.TabIndex = 1;
+            this.hashrate_12hr_lbl.Text = "0";
             // 
-            // label14
+            // hashrate_6hr_lbl
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(99, 81);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(13, 13);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "0";
+            this.hashrate_6hr_lbl.AutoSize = true;
+            this.hashrate_6hr_lbl.Location = new System.Drawing.Point(99, 81);
+            this.hashrate_6hr_lbl.Name = "hashrate_6hr_lbl";
+            this.hashrate_6hr_lbl.Size = new System.Drawing.Size(13, 13);
+            this.hashrate_6hr_lbl.TabIndex = 1;
+            this.hashrate_6hr_lbl.Text = "0";
             // 
-            // label13
+            // hashrate_3hr_lbl
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(99, 68);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(13, 13);
-            this.label13.TabIndex = 1;
-            this.label13.Text = "0";
+            this.hashrate_3hr_lbl.AutoSize = true;
+            this.hashrate_3hr_lbl.Location = new System.Drawing.Point(99, 68);
+            this.hashrate_3hr_lbl.Name = "hashrate_3hr_lbl";
+            this.hashrate_3hr_lbl.Size = new System.Drawing.Size(13, 13);
+            this.hashrate_3hr_lbl.TabIndex = 1;
+            this.hashrate_3hr_lbl.Text = "0";
             // 
-            // label12
+            // hashrate_1hr_lbl
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(99, 55);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(13, 13);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "0";
+            this.hashrate_1hr_lbl.AutoSize = true;
+            this.hashrate_1hr_lbl.Location = new System.Drawing.Point(99, 55);
+            this.hashrate_1hr_lbl.Name = "hashrate_1hr_lbl";
+            this.hashrate_1hr_lbl.Size = new System.Drawing.Size(13, 13);
+            this.hashrate_1hr_lbl.TabIndex = 1;
+            this.hashrate_1hr_lbl.Text = "0";
             // 
-            // label11
+            // curr_hashrate_lbl
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(99, 42);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(13, 13);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "0";
+            this.curr_hashrate_lbl.AutoSize = true;
+            this.curr_hashrate_lbl.Location = new System.Drawing.Point(99, 42);
+            this.curr_hashrate_lbl.Name = "curr_hashrate_lbl";
+            this.curr_hashrate_lbl.Size = new System.Drawing.Size(13, 13);
+            this.curr_hashrate_lbl.TabIndex = 8;
+            this.curr_hashrate_lbl.Text = "0";
             // 
-            // label10
+            // balance_lbl
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(99, 29);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(13, 13);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "0";
+            this.balance_lbl.AutoSize = true;
+            this.balance_lbl.Location = new System.Drawing.Point(99, 29);
+            this.balance_lbl.Name = "balance_lbl";
+            this.balance_lbl.Size = new System.Drawing.Size(13, 13);
+            this.balance_lbl.TabIndex = 7;
+            this.balance_lbl.Text = "0";
             // 
             // textBox2
             // 
@@ -336,11 +336,11 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label29);
-            this.groupBox2.Controls.Add(this.label28);
-            this.groupBox2.Controls.Add(this.label27);
-            this.groupBox2.Controls.Add(this.label26);
-            this.groupBox2.Controls.Add(this.label25);
+            this.groupBox2.Controls.Add(this.nv_usage_lbl);
+            this.groupBox2.Controls.Add(this.nv_mem_lbl);
+            this.groupBox2.Controls.Add(this.nv_pw_lbl);
+            this.groupBox2.Controls.Add(this.nv_tmp_lbl);
+            this.groupBox2.Controls.Add(this.fan_perc_lbl);
             this.groupBox2.Controls.Add(this.label22);
             this.groupBox2.Controls.Add(this.label21);
             this.groupBox2.Controls.Add(this.label20);
@@ -353,50 +353,50 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Nvidia Info";
             // 
-            // label29
+            // nv_usage_lbl
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(55, 68);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(13, 13);
-            this.label29.TabIndex = 8;
-            this.label29.Text = "0";
+            this.nv_usage_lbl.AutoSize = true;
+            this.nv_usage_lbl.Location = new System.Drawing.Point(55, 68);
+            this.nv_usage_lbl.Name = "nv_usage_lbl";
+            this.nv_usage_lbl.Size = new System.Drawing.Size(13, 13);
+            this.nv_usage_lbl.TabIndex = 8;
+            this.nv_usage_lbl.Text = "0";
             // 
-            // label28
+            // nv_mem_lbl
             // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(55, 55);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(13, 13);
-            this.label28.TabIndex = 7;
-            this.label28.Text = "0";
+            this.nv_mem_lbl.AutoSize = true;
+            this.nv_mem_lbl.Location = new System.Drawing.Point(55, 55);
+            this.nv_mem_lbl.Name = "nv_mem_lbl";
+            this.nv_mem_lbl.Size = new System.Drawing.Size(13, 13);
+            this.nv_mem_lbl.TabIndex = 7;
+            this.nv_mem_lbl.Text = "0";
             // 
-            // label27
+            // nv_pw_lbl
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(55, 42);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(13, 13);
-            this.label27.TabIndex = 6;
-            this.label27.Text = "0";
+            this.nv_pw_lbl.AutoSize = true;
+            this.nv_pw_lbl.Location = new System.Drawing.Point(55, 42);
+            this.nv_pw_lbl.Name = "nv_pw_lbl";
+            this.nv_pw_lbl.Size = new System.Drawing.Size(13, 13);
+            this.nv_pw_lbl.TabIndex = 6;
+            this.nv_pw_lbl.Text = "0";
             // 
-            // label26
+            // nv_tmp_lbl
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(55, 29);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(13, 13);
-            this.label26.TabIndex = 5;
-            this.label26.Text = "0";
+            this.nv_tmp_lbl.AutoSize = true;
+            this.nv_tmp_lbl.Location = new System.Drawing.Point(55, 29);
+            this.nv_tmp_lbl.Name = "nv_tmp_lbl";
+            this.nv_tmp_lbl.Size = new System.Drawing.Size(13, 13);
+            this.nv_tmp_lbl.TabIndex = 5;
+            this.nv_tmp_lbl.Text = "0";
             // 
-            // label25
+            // fan_perc_lbl
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(55, 16);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(13, 13);
-            this.label25.TabIndex = 4;
-            this.label25.Text = "0";
+            this.fan_perc_lbl.AutoSize = true;
+            this.fan_perc_lbl.Location = new System.Drawing.Point(55, 16);
+            this.fan_perc_lbl.Name = "fan_perc_lbl";
+            this.fan_perc_lbl.Size = new System.Drawing.Size(13, 13);
+            this.fan_perc_lbl.TabIndex = 4;
+            this.fan_perc_lbl.Text = "0";
             // 
             // label22
             // 
@@ -479,14 +479,14 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label hashrate_nhr_lbl;
+        private System.Windows.Forms.Label hashrate_24hr_lbl;
+        private System.Windows.Forms.Label hashrate_12hr_lbl;
+        private System.Windows.Forms.Label hashrate_6hr_lbl;
+        private System.Windows.Forms.Label hashrate_3hr_lbl;
+        private System.Windows.Forms.Label hashrate_1hr_lbl;
+        private System.Windows.Forms.Label curr_hashrate_lbl;
+        private System.Windows.Forms.Label balance_lbl;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -507,13 +507,13 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label usd_balance_lbl;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label nv_usage_lbl;
+        private System.Windows.Forms.Label nv_mem_lbl;
+        private System.Windows.Forms.Label nv_pw_lbl;
+        private System.Windows.Forms.Label nv_tmp_lbl;
+        private System.Windows.Forms.Label fan_perc_lbl;
         private System.Windows.Forms.CheckBox checkBox1;
     }
 }

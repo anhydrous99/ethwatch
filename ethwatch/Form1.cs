@@ -24,23 +24,23 @@ namespace ethwatch
             int hr = Convert.ToInt32(textBox1.Text);
             float balance = NanoPool.get_Balance(address);
             float eth_USD_Price = NanoPool.get_eth_usd_rate();
-            SetText_label10(balance.ToString());
-            SetText_label11(NanoPool.get_CurrentHashrate(address).ToString());
-            SetText_label12(NanoPool.get_Hashrate(address, 1).ToString());
-            SetText_label13(NanoPool.get_Hashrate(address, 3).ToString());
-            SetText_label14(NanoPool.get_Hashrate(address, 6).ToString());
-            SetText_label15(NanoPool.get_Hashrate(address, 12).ToString());
-            SetText_label16(NanoPool.get_Hashrate(address, 24).ToString());
-            SetText_label17(NanoPool.get_Hashrate(address, hr).ToString());
-            SetText_label24(Convert.ToString(balance * eth_USD_Price));
+            SetText_balance_lbl(balance.ToString());
+            SetText_curr_hashrate_lbl(NanoPool.get_CurrentHashrate(address).ToString());
+            SetText_hashrate_1hr_lbl(NanoPool.get_Hashrate(address, 1).ToString());
+            SetText_hashrate_3hr_lbl(NanoPool.get_Hashrate(address, 3).ToString());
+            SetText_hashrate_6hr_lbl(NanoPool.get_Hashrate(address, 6).ToString());
+            SetText_hashrate_12hr_lbl(NanoPool.get_Hashrate(address, 12).ToString());
+            SetText_hashrate_24hr_lbl(NanoPool.get_Hashrate(address, 24).ToString());
+            SetText_hashrate_nhr_lbl(NanoPool.get_Hashrate(address, hr).ToString());
+            SetText_usd_balance_lbl(Convert.ToString(balance * eth_USD_Price));
             if (Do_ssh)
             {
                 SSH.Nvidia_Info nv_info = SSH.Get_Nvidia_Info(Connection_Info);
-                SetText_label25(nv_info.Fan_percent.ToString() + "%");
-                SetText_label26(nv_info.Temp.ToString() + "C");
-                SetText_label27(nv_info.Power_consumtion.ToString() + "W/" + nv_info.Power_Limit.ToString() + "W");
-                SetText_label28(nv_info.Mem_Usage.ToString() + "MiB/" + nv_info.Mem_Limit.ToString() + "MiB");
-                SetText_label29(nv_info.GPU_Util + "%");
+                SetText_fan_perc_lbl(nv_info.Fan_percent.ToString() + "%");
+                SetText_nv_tmp_lbl(nv_info.Temp.ToString() + "C");
+                SetText_nv_pw_lbl(nv_info.Power_consumtion.ToString() + "W/" + nv_info.Power_Limit.ToString() + "W");
+                SetText_nv_mem_lbl(nv_info.Mem_Usage.ToString() + "MiB/" + nv_info.Mem_Limit.ToString() + "MiB");
+                SetText_nv_usage_lbl(nv_info.GPU_Util + "%");
             }
         }
         bool enabled = false;
@@ -93,172 +93,172 @@ namespace ethwatch
         }
         #region Thread Safe Calls
         delegate void StringArgReturnVoidDelegate(string text);
-        private void SetText_label10(string text)
+        private void SetText_balance_lbl(string text)
         {
-            if (this.label10.InvokeRequired)
+            if (this.balance_lbl.InvokeRequired)
             {
-                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label10);
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_balance_lbl);
                 this.Invoke(d, new object[] { text });
             }
             else
             {
-                label10.Text = text;
+                balance_lbl.Text = text;
             }
         }
-        private void SetText_label11(string text)
+        private void SetText_curr_hashrate_lbl(string text)
         {
-            if (this.label11.InvokeRequired)
+            if (this.curr_hashrate_lbl.InvokeRequired)
             {
-                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label11);
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_curr_hashrate_lbl);
                 this.Invoke(d, new object[] { text });
             }
             else
             {
-                label11.Text = text;
+                curr_hashrate_lbl.Text = text;
             }
         }
-        private void SetText_label12(string text)
+        private void SetText_hashrate_1hr_lbl(string text)
         {
-            if (this.label12.InvokeRequired)
+            if (this.hashrate_1hr_lbl.InvokeRequired)
             {
-                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label12);
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_hashrate_1hr_lbl);
                 this.Invoke(d, new object[] { text });
             }
             else
             {
-                label12.Text = text;
+                hashrate_1hr_lbl.Text = text;
             }
         }
-        private void SetText_label13(string text)
+        private void SetText_hashrate_3hr_lbl(string text)
         {
-            if (this.label13.InvokeRequired)
+            if (this.hashrate_3hr_lbl.InvokeRequired)
             {
-                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label13);
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_hashrate_3hr_lbl);
                 this.Invoke(d, new object[] { text });
             }
             else
             {
-                label13.Text = text;
+                hashrate_3hr_lbl.Text = text;
             }
         }
-        private void SetText_label14(string text)
+        private void SetText_hashrate_6hr_lbl(string text)
         {
-            if (this.label14.InvokeRequired)
+            if (this.hashrate_6hr_lbl.InvokeRequired)
             {
-                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label14);
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_hashrate_6hr_lbl);
                 this.Invoke(d, new object[] { text });
             }
             else
             {
-                label14.Text = text;
+                hashrate_6hr_lbl.Text = text;
             }
         }
-        private void SetText_label15(string text)
+        private void SetText_hashrate_12hr_lbl(string text)
         {
-            if (this.label15.InvokeRequired)
+            if (this.hashrate_12hr_lbl.InvokeRequired)
             {
-                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label15);
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_hashrate_12hr_lbl);
                 this.Invoke(d, new object[] { text });
             }
             else
             {
-                label15.Text = text;
+                hashrate_12hr_lbl.Text = text;
             }
         }
-        private void SetText_label16(string text)
+        private void SetText_hashrate_24hr_lbl(string text)
         {
-            if (this.label16.InvokeRequired)
+            if (this.hashrate_24hr_lbl.InvokeRequired)
             {
-                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label16);
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_hashrate_24hr_lbl);
                 this.Invoke(d, new object[] { text });
             }
             else
             {
-                label16.Text = text;
+                hashrate_24hr_lbl.Text = text;
             }
         }
-        private void SetText_label17(string text)
+        private void SetText_hashrate_nhr_lbl(string text)
         {
-            if (this.label17.InvokeRequired)
+            if (this.hashrate_nhr_lbl.InvokeRequired)
             {
-                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label17);
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_hashrate_nhr_lbl);
                 this.Invoke(d, new object[] { text });
             }
             else
             {
-                label17.Text = text;
+                hashrate_nhr_lbl.Text = text;
             }
         }
-        private void SetText_label24(string text)
+        private void SetText_usd_balance_lbl(string text)
         {
-            if (this.label24.InvokeRequired)
+            if (this.usd_balance_lbl.InvokeRequired)
             {
-                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label24);
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_usd_balance_lbl);
                 this.Invoke(d, new object[] { text });
             }
             else
             {
-                label24.Text = text;
+                usd_balance_lbl.Text = text;
             }
         }
-        private void SetText_label25(string text)
+        private void SetText_fan_perc_lbl(string text)
         {
-            if (this.label25.InvokeRequired)
+            if (this.fan_perc_lbl.InvokeRequired)
             {
-                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label25);
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_fan_perc_lbl);
                 this.Invoke(d, new object[] { text });
             }
             else
             {
-                label25.Text = text;
+                fan_perc_lbl.Text = text;
             }
         }
-        private void SetText_label26(string text)
+        private void SetText_nv_tmp_lbl(string text)
         {
-            if (this.label26.InvokeRequired)
+            if (this.nv_tmp_lbl.InvokeRequired)
             {
-                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label26);
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_nv_tmp_lbl);
                 this.Invoke(d, new object[] { text });
             }
             else
             {
-                label26.Text = text;
+                nv_tmp_lbl.Text = text;
             }
         }
-        private void SetText_label27(string text)
+        private void SetText_nv_pw_lbl(string text)
         {
-            if (this.label27.InvokeRequired)
+            if (this.nv_pw_lbl.InvokeRequired)
             {
-                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label27);
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_nv_pw_lbl);
                 this.Invoke(d, new object[] { text });
             }
             else
             {
-                label27.Text = text;
+                nv_pw_lbl.Text = text;
             }
         }
-        private void SetText_label28(string text)
+        private void SetText_nv_mem_lbl(string text)
         {
-            if (this.label28.InvokeRequired)
+            if (this.nv_mem_lbl.InvokeRequired)
             {
-                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label28);
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_nv_mem_lbl);
                 this.Invoke(d, new object[] { text });
             }
             else
             {
-                label28.Text = text;
+                nv_mem_lbl.Text = text;
             }
         }
-        private void SetText_label29(string text)
+        private void SetText_nv_usage_lbl(string text)
         {
-            if (this.label29.InvokeRequired)
+            if (this.nv_usage_lbl.InvokeRequired)
             {
-                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_label29);
+                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_nv_usage_lbl);
                 this.Invoke(d, new object[] { text });
             }
             else
             {
-                label29.Text = text;
+                nv_usage_lbl.Text = text;
             }
         }
         #endregion
