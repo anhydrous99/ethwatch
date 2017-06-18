@@ -1,4 +1,2 @@
 # ethwatch
-A C# Program that uses the Ethereum NanoPool API and SSH.NET to keep track of my miner.
-I created this program more for personal use, but I thought I would share it.
-  The code is probably riddled with bugs and poorly written, since, I wrote it in a couply of days.
+A C# program that uses the Ethereum NanoPool WebAPI and SSH.Net in order to keep track of my Ethereum miners. This program I build on the expectation that only I would personally use it. As so there are some bugs that need to be ironed out and some features that I’m thinking of adding at a future date. This program queues the NanoPool API to get statistics constantly as to not have to browse to the NanoPool website. The program also uses SSH.Net to directly get the gpu stats for the Nvidia Graphics card that I have, so I am not sure that feature will work with other models of nvidia gpus and will not work with AMD	gpus or multiple GPU or from an OS other than an linux. These are some features that could be added in the future, maybe.
