@@ -33,17 +33,18 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Interval_txt_box = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Submit = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.pass_txt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.user_txt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.add_txt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.prt_txt = new System.Windows.Forms.TextBox();
-            this.pass_txt = new System.Windows.Forms.TextBox();
-            this.user_txt = new System.Windows.Forms.TextBox();
-            this.add_txt = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -73,7 +74,7 @@
             // 
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.Interval_txt_box);
             this.groupBox2.Location = new System.Drawing.Point(3, 70);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 47);
@@ -99,16 +100,18 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "s";
             // 
-            // textBox1
+            // Interval_txt_box
             // 
-            this.textBox1.Location = new System.Drawing.Point(54, 14);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(87, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "30";
+            this.Interval_txt_box.Location = new System.Drawing.Point(54, 14);
+            this.Interval_txt_box.Name = "Interval_txt_box";
+            this.Interval_txt_box.Size = new System.Drawing.Size(87, 20);
+            this.Interval_txt_box.TabIndex = 1;
+            this.Interval_txt_box.Text = "30";
+            this.Interval_txt_box.TextChanged += new System.EventHandler(this.Interval_txt_box_TextChanged);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.Submit);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.pass_txt);
             this.groupBox3.Controls.Add(this.label5);
@@ -124,6 +127,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Nvidia_Info and SSH Settings";
             // 
+            // Submit
+            // 
+            this.Submit.Enabled = false;
+            this.Submit.Location = new System.Drawing.Point(112, 128);
+            this.Submit.Name = "Submit";
+            this.Submit.Size = new System.Drawing.Size(75, 23);
+            this.Submit.TabIndex = 9;
+            this.Submit.Text = "Submit";
+            this.Submit.UseVisualStyleBackColor = true;
+            this.Submit.Click += new System.EventHandler(this.Submit_Click);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -132,6 +146,17 @@
             this.label6.Size = new System.Drawing.Size(26, 13);
             this.label6.TabIndex = 3;
             this.label6.Text = "Port";
+            // 
+            // pass_txt
+            // 
+            this.pass_txt.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::ethwatch.Properties.Settings.Default, "lol6", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.pass_txt.Enabled = false;
+            this.pass_txt.Location = new System.Drawing.Point(6, 130);
+            this.pass_txt.Name = "pass_txt";
+            this.pass_txt.PasswordChar = '*';
+            this.pass_txt.Size = new System.Drawing.Size(100, 20);
+            this.pass_txt.TabIndex = 8;
+            this.pass_txt.Text = global::ethwatch.Properties.Settings.Default.lol6;
             // 
             // label5
             // 
@@ -142,6 +167,16 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Password";
             // 
+            // user_txt
+            // 
+            this.user_txt.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::ethwatch.Properties.Settings.Default, "lol4", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.user_txt.Enabled = false;
+            this.user_txt.Location = new System.Drawing.Point(9, 91);
+            this.user_txt.Name = "user_txt";
+            this.user_txt.Size = new System.Drawing.Size(100, 20);
+            this.user_txt.TabIndex = 6;
+            this.user_txt.Text = global::ethwatch.Properties.Settings.Default.lol4;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -150,6 +185,16 @@
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 5;
             this.label4.Text = "Username";
+            // 
+            // add_txt
+            // 
+            this.add_txt.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::ethwatch.Properties.Settings.Default, "lol3", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.add_txt.Enabled = false;
+            this.add_txt.Location = new System.Drawing.Point(9, 52);
+            this.add_txt.Name = "add_txt";
+            this.add_txt.Size = new System.Drawing.Size(176, 20);
+            this.add_txt.TabIndex = 4;
+            this.add_txt.Text = global::ethwatch.Properties.Settings.Default.lol3;
             // 
             // label3
             // 
@@ -169,6 +214,7 @@
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "Enable SSH to get Nvidia Info";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // prt_txt
             // 
@@ -179,37 +225,6 @@
             this.prt_txt.Size = new System.Drawing.Size(67, 20);
             this.prt_txt.TabIndex = 9;
             this.prt_txt.Text = global::ethwatch.Properties.Settings.Default.lol5;
-            // 
-            // pass_txt
-            // 
-            this.pass_txt.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::ethwatch.Properties.Settings.Default, "lol6", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.pass_txt.Enabled = false;
-            this.pass_txt.Location = new System.Drawing.Point(6, 130);
-            this.pass_txt.Name = "pass_txt";
-            this.pass_txt.PasswordChar = '*';
-            this.pass_txt.Size = new System.Drawing.Size(100, 20);
-            this.pass_txt.TabIndex = 8;
-            this.pass_txt.Text = global::ethwatch.Properties.Settings.Default.lol6;
-            // 
-            // user_txt
-            // 
-            this.user_txt.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::ethwatch.Properties.Settings.Default, "lol4", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.user_txt.Enabled = false;
-            this.user_txt.Location = new System.Drawing.Point(9, 91);
-            this.user_txt.Name = "user_txt";
-            this.user_txt.Size = new System.Drawing.Size(100, 20);
-            this.user_txt.TabIndex = 6;
-            this.user_txt.Text = global::ethwatch.Properties.Settings.Default.lol4;
-            // 
-            // add_txt
-            // 
-            this.add_txt.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::ethwatch.Properties.Settings.Default, "lol3", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.add_txt.Enabled = false;
-            this.add_txt.Location = new System.Drawing.Point(9, 52);
-            this.add_txt.Name = "add_txt";
-            this.add_txt.Size = new System.Drawing.Size(176, 20);
-            this.add_txt.TabIndex = 4;
-            this.add_txt.Text = global::ethwatch.Properties.Settings.Default.lol3;
             // 
             // Settings
             // 
@@ -241,7 +256,7 @@
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Interval_txt_box;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox pass_txt;
@@ -253,5 +268,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox prt_txt;
+        private System.Windows.Forms.Button Submit;
     }
 }

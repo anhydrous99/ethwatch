@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
 using API_call;
@@ -65,17 +66,25 @@ namespace ethwatch
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e) // Will call settings
         {
             frm = new Settings((int)(this.Opacity * 100), timer1.Interval, Do_ssh, Connection_Info);
-            frm.DatabaseChanged += settingsForm_Databasechanged;
+            frm.DatabaseChanged_1 += settingsForm_Databasechanged_1;
+            frm.DatabaseChanged_2 += settingsForm_Databasechanged_2;
+            frm.DatabaseChanged_3 += settingsFrom_Databasechanged_3;
             frm.ShowDialog();
         }
         private static bool Do_ssh;
         private static SSH.Connection_Info Connection_Info;
-        void settingsForm_Databasechanged(int op, int interval, bool ssh, SSH.Connection_Info con_Info)
+        void settingsForm_Databasechanged_1(int op)
         {
             this.Opacity = (double)op / 100;
-            timer1.Interval = interval * 1000;
+        }
+        void settingsForm_Databasechanged_2(bool ssh, SSH.Connection_Info con_Info)
+        {
             Do_ssh = ssh;
             Connection_Info = con_Info;
+        }
+        void settingsFrom_Databasechanged_3(int interval)
+        {
+            timer1.Interval = interval * 1000;
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -89,7 +98,10 @@ namespace ethwatch
         }
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Properties.Settings.Default.Save();
+            if (Debugger.IsAttached)
+                Properties.Settings.Default.Reset();
+            else
+                Properties.Settings.Default.Save();
         }
         #region Thread Safe Calls
         delegate void StringArgReturnVoidDelegate(string text);

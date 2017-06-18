@@ -517,4 +517,3 @@
         private System.Windows.Forms.CheckBox checkBox1;
     }
 }
-
