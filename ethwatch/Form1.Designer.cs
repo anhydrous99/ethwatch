@@ -68,6 +68,8 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label10 = new System.Windows.Forms.Label();
+            this.eth_price_lbl = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -75,6 +77,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.eth_price_lbl);
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.usd_balance_lbl);
             this.groupBox1.Controls.Add(this.label23);
@@ -448,6 +452,24 @@
             this.timer1.Interval = 30000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 149);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(79, 13);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Ethereum Price";
+            // 
+            // eth_price_lbl
+            // 
+            this.eth_price_lbl.AutoSize = true;
+            this.eth_price_lbl.Location = new System.Drawing.Point(99, 149);
+            this.eth_price_lbl.Name = "eth_price_lbl";
+            this.eth_price_lbl.Size = new System.Drawing.Size(13, 13);
+            this.eth_price_lbl.TabIndex = 13;
+            this.eth_price_lbl.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -515,5 +537,7 @@
         private System.Windows.Forms.Label nv_tmp_lbl;
         private System.Windows.Forms.Label fan_perc_lbl;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label eth_price_lbl;
+        private System.Windows.Forms.Label label10;
     }
 }
