@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text.RegularExpressions;
 using System.Net;
 
@@ -11,9 +12,13 @@ namespace API_call
             float balance = float.NaN;
             string url = "https://api.nanopool.org/v1/eth/balance/" + address;
             string txt = String.Empty;
-            using (WebClient client = new WebClient())
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
+            using (Stream stream = request.GetResponse().GetResponseStream())
             {
-                txt = client.DownloadString(url);
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    txt = reader.ReadToEnd();
+                }
             }
 
             string re1 = ".*?"; // Non-greedy match on filler
@@ -29,10 +34,15 @@ namespace API_call
             float hashrate = float.NaN;
             string url = "https://api.nanopool.org/v1/eth/avghashratelimited/" + address + "/" + hours;
             string txt = String.Empty;
-            using (WebClient client = new WebClient())
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
+            using (Stream stream = request.GetResponse().GetResponseStream())
             {
-                txt = client.DownloadString(url);
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    txt = reader.ReadToEnd();
+                }
             }
+
             string re1, re2;
             try
             {
@@ -57,10 +67,15 @@ namespace API_call
             float hashrate = float.NaN;
             string url = "https://api.nanopool.org/v1/eth/hashrate/" + address;
             string txt = String.Empty;
-            using (WebClient client = new WebClient())
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
+            using (Stream stream = request.GetResponse().GetResponseStream())
             {
-                txt = client.DownloadString(url);
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    txt = reader.ReadToEnd();
+                }
             }
+
             string re1, re2;
             try
             {
@@ -84,11 +99,14 @@ namespace API_call
         {
             float exchange = float.NaN;
             string url = "https://api.nanopool.org/v1/eth/prices";
-
             string txt = String.Empty;
-            using (WebClient client = new WebClient())
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
+            using (Stream stream = request.GetResponse().GetResponseStream())
             {
-                txt = client.DownloadString(url);
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    txt = reader.ReadToEnd();
+                }
             }
 
             string re1 = ".*?"; // Non-greedy match on filler
@@ -103,11 +121,14 @@ namespace API_call
         {
             float exchange = float.NaN;
             string url = "https://api.nanopool.org/v1/eth/prices";
-
             string txt = String.Empty;
-            using (WebClient client = new WebClient())
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
+            using (Stream stream = request.GetResponse().GetResponseStream())
             {
-                txt = client.DownloadString(url);
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    txt = reader.ReadToEnd();
+                }
             }
 
             string re1 = ".*?"; // Non-greedy match on filler
