@@ -34,7 +34,6 @@ namespace ethwatch
             SetText_hashrate_24hr_lbl(NanoPool.get_Hashrate(address, 24).ToString());
             SetText_hashrate_nhr_lbl(NanoPool.get_Hashrate(address, hr).ToString());
             SetText_usd_balance_lbl(Convert.ToString(balance * eth_USD_Price));
-            SetText_eth_price_lbl(eth_USD_Price.ToString());
             if (Do_ssh)
             {
                 SSH.Nvidia_Info nv_info = SSH.Get_Nvidia_Info(Connection_Info);
@@ -213,16 +212,6 @@ namespace ethwatch
             {
                 usd_balance_lbl.Text = text;
             }
-        }
-        private void SetText_eth_price_lbl(string text)
-        {
-            if (this.eth_price_lbl.InvokeRequired)
-            {
-                StringArgReturnVoidDelegate d = new StringArgReturnVoidDelegate(SetText_eth_price_lbl);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-                eth_price_lbl.Text = text;
         }
         private void SetText_fan_perc_lbl(string text)
         {
